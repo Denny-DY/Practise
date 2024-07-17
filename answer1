@@ -1,0 +1,16 @@
+import re
+def deal_string(a):
+    num_str = re.search(r'\d+(\.\d{0,2})?', a).group()
+    if '.' not in num_str:
+        num_str += '.00'
+    elif len(num_str.split('.')[1]) == 1:
+        num_str += '0'
+    elif len(num_str.split('.')[1]) == 0:
+        num_str += '00'
+    return num_str
+
+print("需要处理的字符串是")
+
+a = input()
+
+print(deal_string(a))
